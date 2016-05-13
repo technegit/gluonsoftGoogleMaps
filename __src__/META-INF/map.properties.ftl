@@ -1,0 +1,1 @@
+google.developer.key=${google_developer_key}
