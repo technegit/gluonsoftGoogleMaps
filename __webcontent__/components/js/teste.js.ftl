@@ -1,0 +1,1 @@
+var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${google_developer_key}&sensor=false&libraries=places";
