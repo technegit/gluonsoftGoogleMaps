@@ -9,7 +9,7 @@ $( document ).ready(function() {
 
 function initGoogleMapsAPI(){
 	if(!flagScriptLoaded){
-		$(this).getScript(scriptGoogleMapsAPI, function(){
+		$.getScript(scriptGoogleMapsAPI, function(){
 			console.log("Google Maps API Loaded!");
 			flagScriptLoaded = true;
 		});
