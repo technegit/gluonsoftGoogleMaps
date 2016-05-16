@@ -52,7 +52,7 @@ app.userEvents.fetchMap = function(){
   if (!first)
   {
     first = true
-    this.loadMap("Aclimação, São Paulo - SP, Brasil");
+    this.loadMap("São Paulo - SP, Brasil");
   }
   else if($($('.map-control').val()).val() !== "")
   {
