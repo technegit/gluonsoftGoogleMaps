@@ -5,6 +5,26 @@ var autocomplete;
 var initPosition;
 var first;
 
+// Armazena a url da API do Google Maps. O parâmetro key receberá a chave de desenvolvedor durante o load do Gluonsoft na IDE.
+var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${google_developer_key}&sensor=false&libraries=places";
+var flagScriptLoaded = undefined;
+
+
+$( document ).ready(function() {
+    initGoogleMapsAPI();
+});
+
+// Carrega a API do Google Maps
+function initGoogleMapsAPI(){
+	if(!flagScriptLoaded){
+		$.getScript(scriptGoogleMapsAPI, function(){
+			console.log("Google Maps API Loaded!");
+			flagScriptLoaded = true;
+		});
+	}
+}
+
+
 function initialize() {
     initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
     var options = {
