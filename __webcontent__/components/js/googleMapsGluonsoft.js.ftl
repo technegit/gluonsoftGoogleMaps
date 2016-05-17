@@ -5,7 +5,7 @@ var autocomplete;
 var initPosition;
 var first;
 var flagMapInitialized;
-var initialUserDefinedLocation = "${LOCALIZACAO_INICIAL_MAPA}";  
+var _initialUserDefinedLocation = "${LOCALIZACAO_INICIAL_MAPA}";  
 
 // Armazena a url da API do Google Maps. O parâmetro key receberá a chave de desenvolvedor durante o load do Gluonsoft na IDE.
 var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_JAVASCRIPT_API_DEVELOPER_KEY}&sensor=false&libraries=places";
@@ -31,16 +31,14 @@ function initialize() {
 	if(flagMapInitialized){
 		return;
 	}
-
-	if(initialUserDefinedLocation == undefined || 
-	   initialUserDefinedLocation == "INFORME_A_POSICAO_INICIAL_DO_MAPA" ||
-	   initialUserDefinedLocation == ""){
+	
+	if(getInitialLocationDefinedByUser()==""){
 		initPosition = getCurrentPosition();
 	} else {
-		initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
-		$('.map-control').val(initialUserDefinedLocation);
+		$('.map-control').val(getInitialLocationDefinedByUser());
 	}
 	
+	initPosition = initPosition == undefined ? new google.maps.LatLng(-23.5652103, -46.65112599999998) : initPosition;
     
     var options = {
   		zoom: 5,
@@ -121,6 +119,19 @@ function clearAllMarkers(){
 	}
 	
 	markers = new Array();
+}
+
+
+function getInitialLocationDefinedByUser() {
+	_initialUserDefinedLocation
+	
+	if(_initialUserDefinedLocation == undefined || 
+	   _initialUserDefinedLocation == "INFORME_A_POSICAO_INICIAL_DO_MAPA" ||
+	   _initialUserDefinedLocation == ""){
+		_initialUserDefinedLocation = ""
+	}
+	
+	return _initialUserDefinedLocation;
 }
 
 function getCurrentPosition(){
