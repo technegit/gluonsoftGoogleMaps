@@ -1,1 +1,1 @@
-google.developer.key=${google_developer_key}
+google.maps.javascript.developer.key=${GOOGLE_MAPS_JAVASCRIPT_API_DEVELOPER_KEY}

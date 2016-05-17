@@ -6,7 +6,7 @@ var initPosition;
 var first;
 
 // Armazena a url da API do Google Maps. O parâmetro key receberá a chave de desenvolvedor durante o load do Gluonsoft na IDE.
-var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${google_developer_key}&sensor=false&libraries=places";
+var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_JAVASCRIPT_API_DEVELOPER_KEY}&sensor=false&libraries=places";
 var flagScriptLoaded = undefined;
 
 
