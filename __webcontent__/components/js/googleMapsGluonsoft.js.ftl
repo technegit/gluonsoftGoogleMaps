@@ -66,7 +66,7 @@ function initialize() {
 app.userEvents.fetchMap = function(){
   if (!first){
     first = true
-    this.loadMap(initialUserDefinedLocation);
+    this.loadMap(getInitialLocationDefinedByUser());
   } else if(!$('.map-control').val().trim()== "") {
     this.loadMap($('.map-control').val());
   }	
