@@ -32,7 +32,7 @@ function initialize() {
 		return;
 	}
 
-	if(initialUserDefinedLocation == undefined || == "INFORME_A_POSICAO_INICIAL_DO_MAPA"){
+	if(initialUserDefinedLocation == undefined || initialUserDefinedLocation == "INFORME_A_POSICAO_INICIAL_DO_MAPA"){
 		initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
 	} else {
 		initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
