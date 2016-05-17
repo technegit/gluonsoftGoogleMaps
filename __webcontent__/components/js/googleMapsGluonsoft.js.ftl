@@ -1,6 +1,7 @@
 var geocoder;
 var map;
 var marker;
+var markers[];
 var autocomplete;
 var initPosition;
 var first;
@@ -56,6 +57,8 @@ function initialize() {
 }
  
 app.userEvents.fetchMap = function(){
+  clearAllMarkers();
+  
   if (!first)
   {
     first = true
@@ -94,10 +97,17 @@ app.userEvents.loadMap = function(endereco){
  * @param title Titulo a ser exibido ao se posicionar o cursor do mouse sobre o marcador.
  **/
 function updateMarker(position, map, title){
-  marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
                                     position: position, // Variavel com posições Lat e Lng
                                     map: map,
                                     title: title,
                                     animation: google.maps.Animation.DROP
-                                  }); 
+                                  });
+	markers.push(marker);
+}
+
+function clearAllMarkers(){
+	for(var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
 }
