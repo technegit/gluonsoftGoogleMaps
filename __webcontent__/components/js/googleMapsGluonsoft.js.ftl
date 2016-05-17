@@ -1,6 +1,5 @@
 var geocoder;
 var map;
-var marker;
 var markers = new Array();
 var autocomplete;
 var initPosition;
@@ -60,7 +59,7 @@ app.userEvents.fetchMap = function(){
   if (!first){
     first = true
     this.loadMap("São Paulo - SP, Brasil");
-  } else if($('.map-control').val().trim()== "") {
+  } else if(!$('.map-control').val().trim()== "") {
     this.loadMap($('.map-control').val());
   }	
   return true;
