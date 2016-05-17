@@ -33,7 +33,7 @@ function initialize() {
 	}
 
 	if(initialUserDefinedLocation == undefined || initialUserDefinedLocation == "INFORME_A_POSICAO_INICIAL_DO_MAPA"){
-		initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
+		initPosition = getCurrentPosition();
 	} else {
 		initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
 		$('.map-control').val(initialUserDefinedLocation);
@@ -119,4 +119,17 @@ function clearAllMarkers(){
 	}
 	
 	markers = new Array();
+}
+
+function getCurrentPosition(){
+	var currentLocation = undefined;
+	
+	// Try W3C Geolocation
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		});
+    }
+	
+	return currentLocation;
 }
