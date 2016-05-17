@@ -69,7 +69,11 @@ app.userEvents.fetchMap = function(){
 };
 
 app.userEvents.loadMap = function(endereco){
-  initialize();
+	if(endereco == undefined || endereco == ""){
+		return;
+	}
+	
+  	initialize();
 	geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 		  if (results[0]) {
