@@ -57,8 +57,6 @@ function initialize() {
 }
  
 app.userEvents.fetchMap = function(){
-  clearAllMarkers();
-  
   if (!first){
     first = true
     this.loadMap("São Paulo - SP, Brasil");
@@ -73,6 +71,7 @@ app.userEvents.loadMap = function(endereco){
 		return;
 	}
 	
+	clearAllMarkers();
   	initialize();
 	geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
