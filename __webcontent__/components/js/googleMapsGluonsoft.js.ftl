@@ -59,13 +59,10 @@ function initialize() {
 app.userEvents.fetchMap = function(){
   clearAllMarkers();
   
-  if (!first)
-  {
+  if (!first){
     first = true
     this.loadMap("São Paulo - SP, Brasil");
-  }
-  else if($($('.map-control').val()).val() !== "")
-  {
+  } else if($('.map-control').val().trim()== "") {
     this.loadMap($('.map-control').val());
   }	
   return true;
