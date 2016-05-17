@@ -1,7 +1,7 @@
 var geocoder;
 var map;
 var marker;
-var markers[];
+var markers = new Array();
 var autocomplete;
 var initPosition;
 var first;
@@ -111,5 +111,5 @@ function clearAllMarkers(){
 		markers[i].setMap(null);
 	}
 	
-	markers = [];
+	markers = new Array();
 }
