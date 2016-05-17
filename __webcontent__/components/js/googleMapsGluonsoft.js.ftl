@@ -69,7 +69,7 @@ app.userEvents.fetchMap = function(){
 };
 
 app.userEvents.loadMap = function(endereco){
-	if(endereco == undefined || endereco == ""){
+	if(endereco == undefined || endereco.trim() == ""){
 		return;
 	}
 	
