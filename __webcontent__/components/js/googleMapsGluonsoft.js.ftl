@@ -60,6 +60,7 @@ function initialize() {
     });
     map.setCenter(initPosition);
     
+    $('.map-control').val(getInitialLocationDefinedByUser());
     flagMapInitialized = true;
 }
  
@@ -127,7 +128,7 @@ function getInitialLocationDefinedByUser() {
 	
 	if(_initialUserDefinedLocation == undefined || 
 	   _initialUserDefinedLocation == "INFORME_A_POSICAO_INICIAL_DO_MAPA" ||
-	   _initialUserDefinedLocation == ""){
+	   _initialUserDefinedLocation.trim() == ""){
 		_initialUserDefinedLocation = ""
 	}
 	
