@@ -14,10 +14,6 @@ var flagScriptLoaded = undefined;
 
 $( document ).ready(function() {
     initGoogleMapsAPI();
-    
-    if(getInitialLocationDefinedByUser() != ""){
-		$('.map-control').val(getInitialLocationDefinedByUser());
-	}
 });
 
 // Carrega a API do Google Maps
