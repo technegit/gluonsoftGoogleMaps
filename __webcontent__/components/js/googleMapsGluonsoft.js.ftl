@@ -4,6 +4,7 @@ var marker;
 var autocomplete;
 var initPosition;
 var first;
+var flagMapInitialized; 
 
 // Armazena a url da API do Google Maps. O parâmetro key receberá a chave de desenvolvedor durante o load do Gluonsoft na IDE.
 var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_JAVASCRIPT_API_DEVELOPER_KEY}&sensor=false&libraries=places";
@@ -26,6 +27,10 @@ function initGoogleMapsAPI(){
 
 
 function initialize() {
+	if(flagMapInitialized){
+		return;
+	}
+
     initPosition = new google.maps.LatLng(-23.5652103, -46.65112599999998);
     var options = {
   		zoom: 5,
@@ -46,6 +51,8 @@ function initialize() {
       app.userEvents.fetchMap();
     });
     map.setCenter(initPosition);
+    
+    flagMapInitialized = true;
 }
  
 app.userEvents.fetchMap = function(){
