@@ -77,7 +77,8 @@ app.userEvents.loadMap = function(endereco){
 	
 	clearAllMarkers();
   	initialize();
-	geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
+	//geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
+	geocoder.geocode({ 'address': endereco }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 		  if (results[0]) {
 				var latitude = results[0].geometry.location.lat();
