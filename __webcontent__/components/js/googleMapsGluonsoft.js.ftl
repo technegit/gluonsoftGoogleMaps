@@ -5,7 +5,8 @@ var autocomplete;
 var initPosition;
 var first;
 var flagMapInitialized;
-var _initialUserDefinedLocation = "${LOCALIZACAO_INICIAL_MAPA}";  
+var _initialUserDefinedLocation = "${LOCALIZACAO_INICIAL_MAPA}";
+var firstRun = true;  
 
 // Armazena a url da API do Google Maps. O parâmetro key receberá a chave de desenvolvedor durante o load do Gluonsoft na IDE.
 var scriptGoogleMapsAPI = "http://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_JAVASCRIPT_API_DEVELOPER_KEY}&sensor=false&libraries=places";
@@ -85,7 +86,12 @@ app.userEvents.loadMap = function(endereco){
 				
 				updateMarker(location, map, endereco);
 				map.setCenter(location);
-				map.setZoom(16);
+				if(firstRun){
+					map.setZoom(3);
+					firstRun = false;
+				} else {
+					map.setZoom(16);
+				}
 			}
 		}
 	})
@@ -130,6 +136,7 @@ function getInitialLocationDefinedByUser() {
 	return _initialUserDefinedLocation;
 }
 
+// Retorna a posição inicial com base em dados de geolocalização do browser.
 function getCurrentPosition(){
 	var currentLocation = undefined;
 	
