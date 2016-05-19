@@ -131,7 +131,7 @@ function getInitialLocationDefinedByUser() {
 	if(_initialUserDefinedLocation == undefined || 
 	   _initialUserDefinedLocation == "INFORME_A_POSICAO_INICIAL_DO_MAPA" ||
 	   _initialUserDefinedLocation.trim() == ""){
-		_initialUserDefinedLocation = ""
+		_initialUserDefinedLocation = "Brasil"; // Uma localização inicial precisa ser definida.
 	}
 	
 	return _initialUserDefinedLocation;
