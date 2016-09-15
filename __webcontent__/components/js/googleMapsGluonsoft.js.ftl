@@ -60,6 +60,9 @@ function initialize() {
 }
  
 app.userEvents.fetchMap = function(){
+  if(!flagScriptLoaded)
+    return;
+    
   if (!first){
     first = true
     $('.map-control').val(getInitialLocationDefinedByUser());
