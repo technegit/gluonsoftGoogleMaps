@@ -58,7 +58,22 @@ function initialize() {
     
     flagMapInitialized = true;
 }
- 
+
+/**
+ * Load a map from a received address
+ * 
+ * @param addressValue Address to be show on the map
+ * 
+ */
+app.userEvents.fetchMapFromAddressValue = function(addressValue){
+  if(!flagScriptLoaded)
+    return;
+  
+  if(addressValue && addressValue.trim() !== ""){
+    this.loadMap(addressValue);
+  }
+};
+
 app.userEvents.fetchMap = function(){
   if(!flagScriptLoaded)
     return;
