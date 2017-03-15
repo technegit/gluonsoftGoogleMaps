@@ -5,7 +5,7 @@
 		{
 			"name": "crn-map",
 			"text": "Map",
-			"class": "cpn cpn-map",
+			"class": "mdi mdi-google-maps",
 			"templateURL": "${webcontent}/components/templates/map.template.html",
 			"properties": {
 				"onchange": {
