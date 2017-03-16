@@ -1,9 +1,7 @@
-<div data-container="true" id="starter" draggable="true" class="" ng-init="fetchMap()"> 
-  <div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-281957"> 
+  <div class="component-holder ng-binding ng-scope" data-component="crn-textinput"  data-container="true" id="crn-textinput-281957" draggable="true" ng-init="fetchMap()"> 
     <div class="form-group"> 
       <label class="">Endere&ccedil;o</label> 
       <input type="text" ng-model="address" class="form-control map-control" placeholder="Endere&ccedil;o" ng-blur="fetchMap()"> 
+      <div style="height:400px; width:700px; border: 3px solid #cecece;" class="map"></div>
     </div> 
   </div> 
-</div> 
-<div style="height:400px; width:700px;" class="map"><img src="./img/map.png" style="width:70%; height:100%; display:block; margin:auto;"></div>
